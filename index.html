@@ -1,0 +1,320 @@
+<?php 
+     include_once('database.php');
+ ?>    
+<!DOCTYPE html>
+	<html>
+	<head>
+			<meta charset="utf-8">
+			<meta http-equiv="X-UA-Compatible" content="IE=edge">
+			<title></title>
+			<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.3.0/pure-min.css">
+            <link rel="stylesheet"  href="css/reset.css">
+           <!-- <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">-->
+            <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+            <script src="http://use.typekit.net/gis6vng.js"></script>		
+            <style type="text/css">.header h1,.hero h1,.hero h2,.tk-omnes-pro{font-family:"omnes-pro",sans-serif;}</style>
+            <link rel="stylesheet" href="http://use.typekit.net/c/ed00b8/omnes-pro:n2:n3,proxima-nova:n1:n4:n7.X33:N:2,X35:N:2,Vmv:N:2,W0V:N:2,W0Y:N:2/d?3bb2a6e53c9684ffdc9a9ef3135b2a62d088c02801e4b8cf3adbe0e586742ab27c88b10b1c0967de7482ea95d27aee2d2f4b3d7420323f25b5b6830a932efa20dbd7b0c3cfe811162d28a21d83537731079b0bfa64da1085ffc1902cba3fe55cbe862530e435a09f2e0c491a3a79786f4218f58d4e556b395739b9859553b5f2100512cc1ed4d4502a8a20c3b0f1c8e79975f76c50167faed5540f4d3af73e4dfc54b2e33acc772268427364ead3ab18fe73ce30d79e2e22752abbdb413a7c0d055299eeb96a0d75e9b762231f3bda3a6005b057d593bb207de031f4f72fdb3260701489b2636ca808b909aeabb66ad93eceb1a365b467636e05a70b7c4bdc00f0b6ccf65294a147c65bd859af47738e26b49ed54bd2609649abef78a42f504ec4e516daf055ebcc0a5bd948ab3efaca1ea1c102a4d9740b817375312104b329e3aad208eb65d8b915e444982dd7659a6af1c1cdf0671a27e0fda9fa37d1408f0c63b42b1474d2ff4911b441b49fd18366b467794202ea144ac1a026f21a82729614a179a073db54a97982f410a02772dde89cc0033f6e8766dbd8d998675c1c764b390ac8a5e794b7358275f132882eebb69cd8f4c954c82d37ce9b9f15002d804ac7c4858fdc00758ad8">
+            <script>
+                try { Typekit.load(); } catch (e) {}
+            </script>
+            <style>
+            /* Blog layout */
+                #layout {
+                    padding-left: 25%;                    
+                    position: relative;
+                }
+                .sidebar {
+                    position: fixed;
+                    top: 0;
+                    bottom: 0;
+                    width: 20%;
+                    margin-left: -25%;
+                    background: rgb(24, 33, 61);
+                    color: #fff;
+                }
+                
+                .content {
+                    padding: 2em 3em 0;
+                }
+              /* ends here */              
+
+                .header {
+                    margin: 50% 2em 0;
+                    text-align: right;
+
+                }
+                
+                .brand-title {
+                    text-transform: uppercase;
+                }
+
+                .brand-title, .brand-tagline {
+                    margin: 0;
+                }
+                 .header {
+                    text-align: right;
+                }
+                .sidebar {
+                    color: #fff;
+                 }
+
+                .brand-tagline {
+                    font-weight: 300;
+                    color: #2d89ef;
+                    text-align: center;
+                }
+                .brand-title, .brand-tagline {
+                margin: 0;
+                }   
+
+                .header {
+                text-align: center;
+                }
+                .nav-item {
+                display: block;
+                zoom: 1;
+                margin-bottom:3px;
+                }
+                .nav-item a:hover, .nav-item a:focus {
+                border: 3px solid #FFFFFF;
+                color: #FFFFFF;
+                text-decoration: none;                
+                }
+
+                #home a {
+                    background-color: #2D89EE;
+                    color: #FFFFFF;
+                }
+                
+                #about a{
+                     background-color: #00a300;
+                     color: #FFFFFF;
+
+                }
+
+                #projects a {
+                    background-color: #ffc40d;
+                    color: #FFFFFF;
+                }
+
+                #projects a { 
+                    background-color: rgb(254, 135, 16);
+                    color:#FFFFFF;
+                }
+
+                #blog a {
+                    background-color: #9f00a7;
+                      
+                }
+
+                #resume a {
+                    background-color: #b91d47;
+                    color:#FFFFFF;
+                }
+
+                    /* Contents on the right side */
+                .content-subhead {
+                    text-transform: uppercase;
+                    color: #aaa;
+                    border-bottom: 1px solid #eee;
+                    padding: 0.4em 0;
+                    font-size: 80%;
+                    font-weight: 500;
+                    letter-spacing: 0.1em;
+                 }
+
+                 .post-avatar {
+                    border-radius: 50px;
+                    float: right;
+                    margin-left: 1em;
+                }
+
+                .post-title {
+                    font-size: 2em;
+                    color: #222;
+                    margin-bottom: 0.2em;
+                }
+
+                a {
+                    text-decoration: none;
+                    color: #00aba9;
+                }
+
+                .post-category-design {
+                    background: #5aba59;
+                }
+                
+                .post-category {
+                margin: 0 0.1em;
+                padding: 0.3em 1em;
+                color: #fff;
+                background: #999;
+                font-size: 90%;
+                }
+                .post-meta {
+                color: #999;
+                font-size: 90%;
+                margin: 0;
+                }
+                .post-description {
+                    font-family: Georgia, "Cambria", serif;
+                    color: #444;
+                    line-height: 1.9em;
+                    font-size: 1.2em;
+                }
+
+                .js {
+                 background-color: #df2d4f;
+                 color:#fff;
+                }       
+
+            </style>
+                
+	</head>
+	<body>
+			<div class="pure-g-r" id="layout">
+                <div class="sidebar pure-u">
+                    <header class="header">
+                        <hgroup>
+                            <h1 class="brand-title">Maisnam Raju </h1>
+                            <h2 class="brand-tagline">Musings on code and life</h2>
+                        </hgroup>
+
+                        <nav class="nav">
+                            <ul class="nav-list">
+                                <li id="home" class="nav-item">
+                                    <a class="pure-button" href="http://purecss.io"><i class="icon-home">&nbsp;</i>Home</a>
+                                </li>
+                                <li id="about" class="nav-item">
+                                    <a class="pure-button" href="#"><i class="icon-male">&nbsp;</i>About Me</a>
+                                </li>
+                                <li id="projects" class="nav-item">
+                                    <a class="pure-button" href="#"><i class="icon-folder-open">&nbsp;</i>My Projects</a>
+                                </li>
+                                <li id="resume" class="nav-item">
+                                    <a class="pure-button" href="#"><i class="icon-sitemap">&nbsp;</i>My Resume</a>
+                                </li>
+                                <li id="blog" class="nav-item">
+                                    <a class="pure-button" href="#"><i class="icon-smile">&nbsp;</i>My Blog</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </header>
+                </div>
+
+                <div class="pure-u-1">
+                    <div class="content">
+                        <!-- A wrapper for all the blog posts -->
+                        <div class="posts">
+                            <h1 class="content-subhead">Pinned Post</h1>
+
+                            <!-- A single blog post -->
+                            <section class="post">
+                                <header class="post-header">
+                                    <img class="post-avatar" alt="Tilo Mitra's avatar" src="/img/common/tilo-avatar.png" height="48" width="48">
+
+                                    <h2 class="post-title">Introducing Pure</h2>
+
+                                    <p class="post-meta">
+                                        By <a href="#" class="post-author">Tilo Mitra</a> under <a class="post-category post-category-design js" href="#">JavaScript</a> <a class="post-category post-category-pure" href="#">Pure</a>
+                                    </p>
+                                </header>
+
+                                <div class="post-description">
+                                    <p>
+                                        Yesterday at CSSConf, we launched Pure – a new CSS library. Phew! Here are the <a href="https://speakerdeck.com/tilomitra/pure-bliss">slides from the presentation</a>. Although it looks pretty minimalist, we’ve been working on Pure for several months. After many iterations, we have released Pure as a set of small, responsive, CSS modules that you can use in every web project.
+                                    </p>
+                                </div>
+                            </section>
+                        </div>
+
+                        <div class="posts">
+                            <h1 class="content-subhead">Recent Posts</h1>
+
+                            <section class="post">
+                                <header class="post-header">
+                                    <img class="post-avatar" alt="Eric Ferraiuolo's avatar" src="/img/common/ericf-avatar.png" height="48" width="48">
+
+                                    <h2 class="post-title">Everything You Need to Know About Grunt</h2>
+
+                                    <p class="post-meta">
+                                        By <a class="post-author" href="#">Eric Ferraiuolo</a> under <a class="post-category post-category-js" href="#">JavaScript</a>
+                                    </p>
+                                </header>
+
+                                <div class="post-description">
+                                    <p>
+                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                                    </p>
+                                </div>
+                            </section>
+
+                            <section class="post">
+                                <header class="post-header">
+                                    <img class="post-avatar" alt="Reid Burke's avatar" src="" height="48" width="48">
+
+                                    <h2 class="post-title">Photos from CSSConf and JSConf</h2>
+
+                                    <p class="post-meta">
+                                        By <a class="post-author" href="#">Reid Burke</a> under <a class="post-category" href="#">Uncategorized</a>
+                                    </p>
+                                </header>
+
+                                <div class="post-description">
+                                    <div class="post-images pure-g-r">
+                                        <div class="pure-u-1-2">
+                                            <a href="http://www.flickr.com/photos/uberlife/8915936174/">
+                                                <img alt="Photo of someone working poolside at a resort" src="http://farm8.staticflickr.com/7448/8915936174_8d54ec76c6.jpg">
+                                            </a>
+
+                                            <div class="post-image-meta">
+                                                <h3>CSSConf Photos</h3>
+                                            </div>
+                                        </div>
+
+                                        <div class="pure-u-1-2">
+                                            <a href="http://www.flickr.com/photos/uberlife/8907351301/">
+                                                <img alt="Photo of the sunset on the beach" src="http://farm8.staticflickr.com/7382/8907351301_bd7460cffb.jpg">
+                                            </a>
+
+                                            <div class="post-image-meta">
+                                                <h3>JSConf Photos</h3>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+
+                            <section class="post">
+                                <header class="post-header">
+                                    <img class="post-avatar" alt="Andrew Wooldridge's avatar" src="/img/common/andrew-avatar.png" height="48" width="48">
+
+                                    <h2 class="post-title">YUI 3.10.2 Released</h2>
+
+                                    <p class="post-meta">
+                                        By <a class="post-author" href="#">Andrew Wooldridge</a> under <a class="post-category post-category-yui" href="#">YUI</a>
+                                    </p>
+                                </header>
+
+                                <div class="post-description">
+                                    <p>
+                                        We are happy to announce the release of YUI 3.10.2! You can find it now on the Yahoo! CDN, download it directly, or pull it in via npm. We’ve also updated the YUI Library website with the latest documentation.
+                                    </p>
+                                </div>
+                            </section>
+                        </div>
+
+                        <footer class="footer">
+                            <div class="pure-menu pure-menu-horizontal pure-menu-open">
+                                <ul>
+                                    <li><a href="http://purecss.io/">About</a></li>
+                                    <li><a href="http://twitter.com/yuilibrary/">Twitter</a></li>
+                                    <li><a href="http://github.com/yui/pure/">Github</a></li>
+                                </ul>
+                            </div>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+	</body>
+</html>
